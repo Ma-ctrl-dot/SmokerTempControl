@@ -188,24 +188,27 @@ void checkBtns()
  {
   Serial.println("Button 'Temp -   UP' pressed");
   temp_new+=5;
-  
-  lcd.setCursor(9,0);
-  lcd.print(temp_set);
 
   lcd.setCursor(17,0);
   lcd.print(temp_new);
+  lcd.print(" ");
+  lcd.setCursor(0,1);
+  lcd.print("T");
  }
+ 
  if(btn_dw.fell())
  {
   Serial.println("Button 'Temp - DOWN' pressed");
   temp_new-=5;
-  
-  lcd.setCursor(9,0);
-  lcd.print(temp_set);
 
   lcd.setCursor(17,0);
   lcd.print(temp_new);
+  lcd.print(" ");
+  lcd.setCursor(0,1);
+  lcd.print("T");
+
  }
+ 
  if(btn_st.fell())
  {
   Serial.println("Button 'Temp -  SET' pressed");
@@ -213,9 +216,9 @@ void checkBtns()
   
   lcd.setCursor(9,0);
   lcd.print(temp_set);
+  lcd.print(" ");
 
-  lcd.setCursor(17,0);
-  lcd.print(temp_new);
+
  }
 
 }
@@ -304,7 +307,13 @@ void calc_fan_speed()
     digitalWrite(Pin_fan_rel, HIGH);
   }
 
-  fan_out = 0;
+  else
+  {
+    fan_out = 0;
+    digitalWrite(Pin_fan_rel, HIGH);
+  }
+
+  
   analogWrite(Pin_fan_pwm, fan_speed);
   
   Serial.print("FAN-PWM: ");
