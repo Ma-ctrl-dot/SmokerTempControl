@@ -21,9 +21,6 @@
 
 
 //########## Pins ########################################################
-#define Pin_fan    9
-#define Pin_tacho  2
-
 #define Pin_btn_up 7
 #define Pin_btn_dw 5
 #define Pin_btn_st 6
@@ -95,6 +92,11 @@ void setup()
   pinMode(Pin_btn_st, INPUT); //define pins for btns as inputs
 
   pinMode(Pin_ntc,    INPUT); //define pin  for ntc  as  input
+
+  pinMode(Pin_fan_tacho, INPUT); //define pin for fan-tacho as input
+
+  pinMode(Pin_fan_pwm, OUTPUT); //define pin for pwm ouput
+  pinMode(Pin_fan_rel, OUTPUT); //define pin for transistor output
 
   btn_up.attach(Pin_btn_up); //setting pin to Bounce-btn
   btn_dw.attach(Pin_btn_dw); //setting pin to Bounce-btn
@@ -265,7 +267,7 @@ void pulse_stretch()
   if (fan_out == 0)
   {
     analogWrite(Pin_fan_pwm, 255);                        // Power fan
-    fan_time_per_pulse = pulseIn(Pin_tacho, HIGH);        // requesting the time per pulse in microseconds
+    fan_time_per_pulse = pulseIn(Pin_fan_tacho, HIGH);        // requesting the time per pulse in microseconds
     analogWrite(Pin_fan_pwm, fan_speed);                  // re-setting the fan speed
     fan_time_rotation = ((fan_time_per_pulse * 4)/1000);  // calculating time per rotation in milliseconds
     fan_rps = (1000/fan_time_rotation);                   // calculating the rotations per second
