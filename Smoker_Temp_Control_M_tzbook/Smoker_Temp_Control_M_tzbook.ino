@@ -87,16 +87,16 @@ void setup()
   
   Serial.println("Setup started");
   
-  pinMode(Pin_btn_up, INPUT); //define pins for btns as inputs
-  pinMode(Pin_btn_dw, INPUT); //define pins for btns as inputs
-  pinMode(Pin_btn_st, INPUT); //define pins for btns as inputs
+  pinMode(Pin_btn_up,    INPUT); //define pins for btns as inputs
+  pinMode(Pin_btn_dw,    INPUT); //define pins for btns as inputs
+  pinMode(Pin_btn_st,    INPUT); //define pins for btns as inputs
 
-  pinMode(Pin_ntc,    INPUT); //define pin  for ntc  as  input
+  pinMode(Pin_ntc,       INPUT); //define pin  for ntc  as  input
 
   pinMode(Pin_fan_tacho, INPUT); //define pin for fan-tacho as input
 
-  pinMode(Pin_fan_pwm, OUTPUT); //define pin for pwm ouput
-  pinMode(Pin_fan_rel, OUTPUT); //define pin for transistor output
+  pinMode(Pin_fan_pwm,   OUTPUT); //define pin for pwm ouput
+  pinMode(Pin_fan_rel,   OUTPUT); //define pin for transistor output
 
   btn_up.attach(Pin_btn_up); //setting pin to Bounce-btn
   btn_dw.attach(Pin_btn_dw); //setting pin to Bounce-btn
