@@ -50,7 +50,7 @@ float       temp_calculating   = 0;     //Float for calculating the temperature 
 const int   resistorInRow      = 10000; //Resistor connected in row to the NTC
 const int   ntcResistance_std  = 10000; //Standard-resistance of the NTC
 const int   ntcTemperature_std = 25;    //Standard-temperature of the NTC
-const int   ntc_bCoefficient   = 3977;  //Beta-coefficient of the NTC
+const int   ntc_bCoefficient   = 3950;  //Beta-coefficient of the NTC
 
 int    temp_averaging[temp_meas_count]; //Array for averaging temperature
 
