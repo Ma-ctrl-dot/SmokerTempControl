@@ -267,7 +267,7 @@ void pulse_stretch()
   if (fan_out == 0)
   {
     analogWrite(Pin_fan_pwm, 255);                        // Power fan
-    fan_time_per_pulse = pulseIn(Pin_fan_tacho, HIGH);        // requesting the time per pulse in microseconds
+    fan_time_per_pulse = pulseIn(Pin_fan_tacho, HIGH);    // requesting the time per pulse in microseconds
     analogWrite(Pin_fan_pwm, fan_speed);                  // re-setting the fan speed
     fan_time_rotation = ((fan_time_per_pulse * 4)/1000);  // calculating time per rotation in milliseconds
     fan_rps = (1000/fan_time_rotation);                   // calculating the rotations per second
